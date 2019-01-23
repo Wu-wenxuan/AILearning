@@ -1,5 +1,6 @@
 > ### Author: Jaiken Wong
 > ### TODO : 持续更新AI学习 Demo(Python/Java)
+> ### Recommend: 《PRML：模式识别与机器学习(中文版)》
 ---
 - [x] 1.音乐分类器
     - 傅里叶变换
