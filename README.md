@@ -10,3 +10,7 @@
     ![2-1](images/onelayer.png)
     - 结果评估
     ![2-2](images/result.png)
+- [x] 3.图片分类
+    - 动物图像分类
+        - LeNet
+        - AlexNet
