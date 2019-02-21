@@ -38,11 +38,11 @@ public class MLPMnistTwoLayerExample {
 		DataSetIterator mnistTest = new MnistDataSetIterator(batchSize, false, rngSeed);
 
 		log.info("Build model....");
-		MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder().seed(rngSeed) // include a random seed for
-																							// reproducibility
+		MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder().seed(rngSeed) // include a random seed for													// reproducibility
 				.activation(Activation.RELU).weightInit(WeightInit.XAVIER).updater(new Nesterovs(rate, 0.98))
 				.l2(rate * 0.005) // regularize learning model
-				.list().layer(0, new DenseLayer.Builder() // create the first input layer.
+				.list()
+				.layer(0, new DenseLayer.Builder() // create the first input layer.
 						.nIn(numRows * numColumns).nOut(500).build())
 				.layer(1, new DenseLayer.Builder() // create the second input layer
 						.nIn(500).nOut(100).build())

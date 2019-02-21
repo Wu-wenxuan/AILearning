@@ -71,18 +71,13 @@ public class MLPMnistSingleLayerExample {
 		 * 
 		 * 
 		 */
-		MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder().seed(rngSeed) // include a random seed for
-																							// reproducibility
-				// use stochastic gradient descent as an optimization algorithm
-				.updater(new Nesterovs(0.006, 0.9)).l2(1e-4).list().layer(0, new DenseLayer.Builder() // create the
-																										// first, input
-																										// layer with
-																										// xavier
-																										// initialization
-						.nIn(numRows * numColumns).nOut(1000).activation(Activation.RELU).weightInit(WeightInit.XAVIER)
-						.build())
-				.layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD) // create hidden layer
-						.nIn(1000).nOut(outputNum).activation(Activation.SOFTMAX).weightInit(WeightInit.XAVIER).build())
+		MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder().seed(rngSeed)
+				.updater(new Nesterovs(0.006, 0.9)).l2(1e-4).list()
+				.layer(0,
+						new DenseLayer.Builder().nIn(numRows * numColumns).nOut(1000).activation(Activation.RELU)
+								.weightInit(WeightInit.XAVIER).build())
+				.layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD).nIn(1000).nOut(outputNum)
+						.activation(Activation.SOFTMAX).weightInit(WeightInit.XAVIER).build())
 				.build();
 
 		MultiLayerNetwork model = new MultiLayerNetwork(conf);
